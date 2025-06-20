@@ -1,5 +1,17 @@
 {
   "landing_title": "We create digital invitations for your special day",
   "landing_subtitle": "Wedding website accessible on mobile and desktop",
-  "see_examples": "See examples"
+  "see_examples": "See examples",
+  "form.title": "Wedding title",
+  "form.title_placeholder": "Enter a title for your site",
+  "form.description": "Short description",
+  "form.description_placeholder": "Write a short description (optional)",
+  "form.date": "Wedding date",
+  "form.multiple_locations": "Are there multiple locations in your wedding?",
+  "form.select_locations": "Enter the locations",
+  "form.location_ceremony": "Ceremony location",
+  "form.location_reception": "Reception location",
+  "form.add_timeline": "Would you like to add a celebration timeline?",
+  "form.timeline_section_placeholder": "E.g. Welcome, Cocktail, Dance...",
+  "form.submit": "Request demo"
 }

@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import TestForm from "@/components/form/TestForm"
+import { getClientLang } from "@/lib/getClientLang"
+
+export const prerender = false
+
+const lang = getClientLang(Astro.request)
+---
+
+<BaseLayout lang={lang}>
+  <TestForm client:load lang={lang} />
+</BaseLayout>

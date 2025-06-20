@@ -1,5 +1,17 @@
 {
   "landing_title": "Creamos invitaciones digitales para tu día especial",
   "landing_subtitle": "Web de boda accesible en móvil y ordenador",
-  "see_examples": "Ver ejemplos"
+  "see_examples": "Ver ejemplos",
+  "form.title": "Título de la boda",
+  "form.title_placeholder": "Introduce un título para la web",
+  "form.description": "Pequeña descripción",
+  "form.description_placeholder": "Escribe una breve descripción (opcional)",
+  "form.date": "Fecha de celebración",
+  "form.multiple_locations": "¿Hay más de una ubicación en tu boda?",
+  "form.select_locations": "Introduce las ubicaciones",
+  "form.location_ceremony": "Ubicación de la ceremonia",
+  "form.location_reception": "Ubicación del banquete",
+  "form.add_timeline": "¿Quieres añadir un cronograma de la celebración?",
+  "form.timeline_section_placeholder": "Ej. Bienvenida, Cóctel, Baile...",
+  "form.submit": "Solicitar demo"
 }
