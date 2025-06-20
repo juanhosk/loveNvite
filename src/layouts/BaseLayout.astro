@@ -1,0 +1,44 @@
+---
+const { lang } = Astro.props;
+import  LanguageSelector  from "@/components/language/LanguageSelector";
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/lovenvite_favicon.ico" />
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    <title>LoveNvite</title>
+  </head>
+  <body class="flex flex-col min-h-screen bg-background text-foreground">
+    <!-- Header -->
+    <header class="border-b shadow-sm bg-white">
+      <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3">
+          <img src="/lovenvite_transparent_logo_sin_letras.png" alt="LoveNvite Logo" class="h-14 md:h-16 w-auto" />
+          <span class="text-xl font-semibold tracking-tight text-rose-600">LoveNvite</span>
+        </a>
+        <LanguageSelector 
+          client:only="react"
+          currentLang={lang}
+          onLangChange={(lang: string) => {
+              localStorage.setItem("lang", lang);
+              document.cookie = `lang=${lang}; path=/`;
+              window.location.reload();
+          }}
+        />
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-muted border-t text-center py-6 text-sm text-muted-foreground">
+      © {new Date().getFullYear()} LoveNvite. Todos los derechos reservados.
+    </footer>
+  </body>
+</html>
