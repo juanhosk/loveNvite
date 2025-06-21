@@ -2,20 +2,21 @@
 
 import { useState } from "react"
 import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
+import { Button } from "@/components/ui/button"
 import { t } from "@/i18n"
 
 interface Props {
   lang: string
-  onValidEmail: (email: string) => void
+  onValidEmail?: (token: string) => void
 }
 
-export default function EmailStep({ lang, onValidEmail }: Props) {
+export default function EmailForm({ lang, onValidEmail }: Props) {
   const [email, setEmail] = useState("")
   const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -24,16 +25,36 @@ export default function EmailStep({ lang, onValidEmail }: Props) {
       return
     }
 
-    setError("")
-    onValidEmail(email)
+    try {
+      setLoading(true)
+      const res = await fetch("http://localhost:3001/api/contact/email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+      })
+
+      if (!res.ok) throw new Error("Fetch failed")
+
+      const { token } = await res.json()
+
+      // Guarda el token
+      localStorage.setItem("form_email_token", token)
+
+      // Llama al callback si se pasa
+      if (typeof onValidEmail === "function") onValidEmail(token)
+
+      // Redirige a la siguiente página
+      window.location.href = "/init-form"
+    } catch (err) {
+      console.error(err)
+      setError(t(lang, "form.email_error"))
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
-    <form className="space-y-4 max-w-md mx-auto p-4" onSubmit={handleSubmit}>
-      <h2 className="text-xl font-semibold text-center">
-        {t(lang, "form.email_step_title")}
-      </h2>
-
+    <form onSubmit={handleSubmit} className="space-y-6 max-w-md mx-auto p-4">
       <div className="space-y-2">
         <Label htmlFor="email">{t(lang, "form.email_label")}</Label>
         <Input
@@ -44,11 +65,10 @@ export default function EmailStep({ lang, onValidEmail }: Props) {
           placeholder={t(lang, "form.email_placeholder")}
           required
         />
-        {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+        {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
       </div>
-
-      <Button type="submit" className="w-full">
-        {t(lang, "form.continue")}
+      <Button type="submit" disabled={loading}>
+        {loading ? t(lang, "form.loading") : t(lang, "form.continue")}
       </Button>
     </form>
   )

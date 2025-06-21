@@ -14,6 +14,10 @@
   "form.add_timeline": "Would you like to add a celebration timeline?",
   "form.timeline_section_placeholder": "E.g. Welcome, Cocktail, Dance...",
   "form.submit": "Request demo",
-  "form.email_label": "Email address",
-  "form.email_placeholder": "Enter your email address"
+  "form.email_label": "Email",
+  "form.email_placeholder": "Enter your email",
+  "form.continue": "Continue",
+  "form.loading": "Sending...",
+  "form.email_invalid": "Please enter a valid email",
+  "form.email_error": "Failed to send the email. Please try again"
 }

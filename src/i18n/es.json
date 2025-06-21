@@ -14,6 +14,10 @@
   "form.add_timeline": "¿Quieres añadir un cronograma de la celebración?",
   "form.timeline_section_placeholder": "Ej. Bienvenida, Cóctel, Baile...",
   "form.submit": "Solicitar demo",
-  "form.email_label": "Correo electrónico",
-  "form.email_placeholder": "Introduce tu correo electrónico"
+  "form.email_label": "Email",
+  "form.email_placeholder": "Introduce tu email",
+  "form.continue": "Continuar",
+  "form.loading": "Enviando...",
+  "form.email_invalid": "Por favor, introduce un email válido",
+  "form.email_error": "No se pudo enviar el email. Intenta de nuevo"
 }
