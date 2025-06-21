@@ -13,5 +13,7 @@
   "form.location_reception": "Reception location",
   "form.add_timeline": "Would you like to add a celebration timeline?",
   "form.timeline_section_placeholder": "E.g. Welcome, Cocktail, Dance...",
-  "form.submit": "Request demo"
+  "form.submit": "Request demo",
+  "form.email_label": "Email address",
+  "form.email_placeholder": "Enter your email address"
 }

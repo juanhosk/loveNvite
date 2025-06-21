@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Button } from "@/components/ui/button"
+import LocationInput from "@/components/form/LocationInput"
 
 export default function TestForm({ lang }: { lang: string }) {
   const [hasMultipleLocations, setHasMultipleLocations] = useState(false)
@@ -42,8 +43,16 @@ export default function TestForm({ lang }: { lang: string }) {
         <div className="space-y-2">
           <Label>{t(lang, "form.select_locations")}</Label>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Input placeholder={t(lang, "form.location_ceremony")} />
-            <Input placeholder={t(lang, "form.location_reception")} />
+            <LocationInput
+              placeholder={t(lang, "form.location_ceremony")}
+              onPlaceSelected={(place) => console.log("Ceremonia:", place)}
+            />
+
+            <LocationInput
+              placeholder={t(lang, "form.location_reception")}
+              onPlaceSelected={(place) => console.log("Banquete:", place)}
+            />
+
           </div>
         </div>
       )}

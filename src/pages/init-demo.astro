@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import EmailForm from "@/components/form/EmailForm"
+import { getClientLang } from "@/lib/getClientLang"
+
+export const prerender = false
+
+const lang = getClientLang(Astro.request)
+---
+
+<BaseLayout lang={lang}>
+  <EmailForm client:load lang={lang} onValidEmail={(email) => console.log("Email válido:", email)}/>
+</BaseLayout>

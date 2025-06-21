@@ -13,5 +13,7 @@
   "form.location_reception": "Ubicación del banquete",
   "form.add_timeline": "¿Quieres añadir un cronograma de la celebración?",
   "form.timeline_section_placeholder": "Ej. Bienvenida, Cóctel, Baile...",
-  "form.submit": "Solicitar demo"
+  "form.submit": "Solicitar demo",
+  "form.email_label": "Correo electrónico",
+  "form.email_placeholder": "Introduce tu correo electrónico"
 }
