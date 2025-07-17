@@ -12,6 +12,9 @@ import LocationInput from "@/components/form/LocationInput"
 export default function TestForm({ lang }: { lang: string }) {
   const [hasMultipleLocations, setHasMultipleLocations] = useState(false)
   const [hasTimeline, setHasTimeline] = useState(false)
+  const [ceremonyLocation, setCeremonyLocation] = useState<{ name: string; lat: number; lng: number } | null>(null);
+  const [receptionLocation, setReceptionLocation] = useState<{ name: string; lat: number; lng: number } | null>(null);
+
 
   return (
     <form className="space-y-6 max-w-2xl mx-auto p-4">
@@ -45,14 +48,12 @@ export default function TestForm({ lang }: { lang: string }) {
           <div className="flex flex-col sm:flex-row gap-4">
             <LocationInput
               placeholder={t(lang, "form.location_ceremony")}
-              onPlaceSelected={(place) => console.log("Ceremonia:", place)}
+              onPlaceSelected={setCeremonyLocation} // Aquí guardas la ubicación de la ceremonia
             />
-
             <LocationInput
               placeholder={t(lang, "form.location_reception")}
-              onPlaceSelected={(place) => console.log("Banquete:", place)}
+              onPlaceSelected={setReceptionLocation} // Aquí guardas la ubicación de la recepción
             />
-
           </div>
         </div>
       )}
